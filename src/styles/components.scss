@@ -1,0 +1,287 @@
+// #region FONTS
+@font-face {
+  font-family: 'Inter-200';
+  src: url('/assets/fonts/Inter-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-300';
+  src: url('/assets/fonts/Inter-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-400';
+  src: url('/assets/fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-500';
+  src: url('/assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'RG';
+  src: url('/assets/fonts/RG-SpaciousBook.ttf');
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'RG';
+}
+
+p,
+span,
+button,
+a {
+  font-family: 'Inter-400';
+  color: white;
+}
+
+// #endregion
+
+// #region BREAKPOINTS
+@mixin break($size) {
+  @media (max-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin breakMin($size) {
+  @media (min-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin pc() {
+  @include break(1440px) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @include break(1024px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @include break(768px) {
+    @content;
+  }
+}
+
+@mixin mobile-big() {
+  @include break(525px) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @include break(430px) {
+    @content;
+  }
+}
+
+@mixin mobile-min() {
+  @include break(375px) {
+    @content;
+  }
+}
+
+// #endregion
+
+// #region COLORS
+$main: #04d404;
+$mainGradient: linear-gradient(93.35deg, #04d404 -30.9%, #026e02 95.29%);
+$white: #ffffff;
+$white-12: #ffffff12;
+$white-24: #ffffff24;
+$white-40: #ffffff40;
+$white-60: #ffffff60;
+$grayText: #ffffff;
+
+$border-gray_gradient: linear-gradient(
+  107.15deg,
+  rgba(255, 255, 255, 0.32) 1.18%,
+  rgba(255, 255, 255, 0.0384) 97.41%
+);
+// #endregion
+
+// #region SIZE
+
+:root {
+  --line-height-h1: 144px;
+  --line-height-h2: 110px;
+
+  --h1: 120px;
+  --h2: 100px;
+  --h3: 80px;
+  --h2-price: 72px;
+  --XXL: 48px;
+  --XL: 32px;
+  --L: 24px;
+  --M: 20px;
+  --S: 16px;
+  --XS: 14px;
+  --XXS: 12px;
+}
+
+@include pc {
+  :root {
+    --line-height-h1: 100px;
+    --line-height-h2: 90px;
+
+    --h1: 90px;
+    --h2: 70px;
+    --h3: 60px;
+    --h2-price: 52px;
+  }
+}
+
+@include laptop {
+  :root {
+    --line-height-h1: 80px;
+    --line-height-h2: 60px;
+
+    --h1: 60px;
+    --h2: 50px;
+    --h3: 40px;
+    --h2-price: 40px;
+    --XL: 24px;
+    --L: 20px;
+  }
+}
+
+@include tablet {
+  :root {
+    --line-height-h1: 50px;
+    --line-height-h2: 36px;
+
+    --h1: 40px;
+    --h3: 30px;
+    --h2-price: 30px;
+    --XL: 20px;
+    --L: 18px;
+  }
+}
+
+@include mobile-big() {
+  :root {
+    --line-height-h1: 44px;
+    --h1: 36px;
+    --h3: 28px;
+  }
+}
+
+@include mobile {
+  :root {
+    --h2: 32px;
+    --XXL: 24px;
+    --XL: 14px;
+
+    --L: 16px;
+    --M: 14px;
+    --S: 12px;
+    --XS: 14px;
+    --XXS: 12px;
+  }
+}
+
+@include mobile-min() {
+  :root {
+    --line-height-h1: 40px;
+    --line-height-h2: 32px;
+    --h1: 30px;
+    --h3: 24px;
+  }
+}
+
+// #endregion
+
+// #region COMPONENTS
+
+@mixin button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border: 1px solid $white-24;
+  border-radius: 110px;
+  background-color: #ffffff05;
+  backdrop-filter: blur(4px);
+  font-size: var(--S);
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  transition: 0.1s;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter-500';
+  img {
+    width: 16px;
+    height: 16px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: 0;
+    height: 200%;
+    width: 6px;
+    rotate: 15deg;
+    background-color: $main;
+    box-shadow: 0 0 10px 10px $main;
+    transition: 0.5s ease;
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -200%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $main;
+    box-shadow: 0 0 10px 10px $main;
+    transition: 0.5s ease;
+    opacity: 0.7;
+    z-index: -1;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      &::after {
+        right: 130%;
+      }
+    }
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &.select {
+    &::before {
+      left: 0;
+    }
+  }
+
+  @include mobile() {
+    border-radius: 100px;
+  }
+}
+
+@mixin button-img {
+  @include button();
+  padding: 4px 4px 4px 24px;
+  font-size: 20px;
+}
+
+// #endregion

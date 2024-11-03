@@ -1,0 +1,53 @@
+@use './components.scss' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: var(--h1);
+  line-height: var(--line-height-h1);
+  @include pc {
+  }
+}
+
+h2 {
+  font-size: var(--h2);
+  line-height: var(--line-height-h2);
+}
+
+p {
+  font-size: var(--M);
+}
+
+section {
+  height: 100vh;
+  background-color: antiquewhite;
+  border: 1px solid black;
+}
+
+body {
+  background-color: #000d00;
+  color: white;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 48px;
+  @include laptop {
+    padding: 36px 42px;
+  }
+  @include tablet {
+    padding: 16px 24px;
+  }
+
+  @include mobile {
+    padding: 16px;
+  }
+}
+
+// * {
+//   outline: 1px solid red;
+// }

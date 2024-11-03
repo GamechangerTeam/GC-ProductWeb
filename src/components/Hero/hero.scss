@@ -1,0 +1,100 @@
+@use '../../styles/components.scss' as *;
+
+h1 {
+  font-size: var(--h1);
+}
+
+.hero {
+  background-image: url('/assets/images/header.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100lvh;
+  display: grid;
+  place-items: center;
+  padding-top: 50px;
+  .container {
+    position: relative;
+  }
+  p {
+    font-size: var(--L);
+    font-family: 'Inter-300';
+    margin-top: 64px;
+    line-height: 32px;
+  }
+
+  &__btn-wrapper {
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+  }
+
+  &__contact-us {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.3s;
+    }
+
+    .text {
+      animation: hero__text-animation 15s infinite linear;
+    }
+    @keyframes hero__text-animation {
+      from {
+        rotate: 0deg;
+      }
+
+      to {
+        rotate: 360deg;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        scale: 1;
+        .arrow {
+          scale: 0.9;
+        }
+      }
+    }
+  }
+
+  @include laptop {
+    background-size: cover;
+    min-height: auto;
+    display: block;
+    padding: 100px 0 300px;
+
+    p {
+      margin-top: 44px;
+    }
+  }
+
+  @include tablet {
+    background-position: 70%;
+    background-size: cover;
+
+    p {
+      margin-top: 24px;
+      line-height: 24px;
+      br {
+        display: none;
+      }
+    }
+    &__btn-wrapper {
+      bottom: -200px;
+      right: 24px;
+      scale: 0.8;
+    }
+  }
+
+  @include mobile-min {
+    padding: 100px 0 250px;
+  }
+}
