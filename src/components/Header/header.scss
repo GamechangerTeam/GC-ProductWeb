@@ -234,10 +234,10 @@
         z-index: 10;
         top: 100px;
         outline: 1px solid $white-40;
-        width: calc(100% - 72px);
-        margin: 0 auto;
+        width: calc(100% - 32px);
         transition: 0.3s;
         scale: 0;
+        left: 16px;
 
         &__list {
           max-height: max-content;
@@ -252,18 +252,38 @@
       }
     }
 
+    // .wave {
+    //   position: fixed;
+    //   top: 0;
+    //   right: 0;
+    //   width: 100vw;
+    //   height: 100vh;
+    //   z-index: 5;
+    //   pointer-events: none;
+    //   circle {
+    //     fill: #000d0090;
+    //     pointer-events: all;
+    //     transition: 0.6s;
+    //   }
+    // }
+
     .wave {
       position: fixed;
       top: 0;
       right: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 0px;
+      height: 0px;
       z-index: 5;
-      pointer-events: none;
-      circle {
-        fill: #000d0090;
-        pointer-events: all;
-        transition: 0.6s;
+      top: 16px;
+      right: 16px;
+      border-radius: 50%;
+      background-color: #000d0090;
+      transition: 0.6s;
+
+      &.active {
+        width: 100vw;
+        height: 100vw;
+        scale: 5;
       }
     }
   }

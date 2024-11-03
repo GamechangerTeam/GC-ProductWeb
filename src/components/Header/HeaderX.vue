@@ -154,7 +154,14 @@ onUnmounted(() => {
         </ul>
       </div>
 
-      <svg class="wave" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+      <span
+        class="wave"
+        :class="{ active: selectorIsOpen }"
+        @click="openSelector"
+      >
+      </span>
+
+      <!-- <svg class="wave" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
         <circle
           :class="{ 'wave--animate': selectorIsOpen }"
           cx="15"
@@ -162,7 +169,7 @@ onUnmounted(() => {
           :r="waveRadius"
           @click="openSelector"
         />
-      </svg>
+      </svg> -->
     </div>
   </header>
 </template>

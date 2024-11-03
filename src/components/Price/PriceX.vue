@@ -6,14 +6,32 @@ const prices = ref(['100-150к', '150-300к', '300-600к', '600к+'])
 const selectedPrice = ref(null)
 const interests = ref(['Лендинг', 'Корпоративный'])
 const selectedInterest = ref(null)
+const formIsValid = ref(false)
+
+const inputAbout = ref('')
+const inputName = ref('')
+const inputNumber = ref('')
+
+const checkForm = () => {
+  if (
+    (selectedPrice.value && selectedInterest.value) !== null &&
+    (inputName.value && inputNumber.value) !== ''
+  ) {
+    formIsValid.value = true
+  } else {
+    formIsValid.value = false
+  }
+}
 
 const selectPrice = price => {
   selectedPrice.value = price
+  checkForm()
+  console.log(inputName.value)
 }
 
 function selectInterest(interest) {
   selectedInterest.value = interest
-  console.log((selectedInterest.value = interest))
+  checkForm()
 }
 </script>
 
@@ -61,17 +79,39 @@ function selectInterest(interest) {
         </div>
         <div class="form__main">
           <div class="form__input-wrapper">
-            <input type="text" name="name" id="name" />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="ㅤ"
+              required
+              v-model="inputName"
+              @input="checkForm"
+            />
             <label for="name">Имя</label>
           </div>
 
           <div class="form__input-wrapper">
-            <input type="number" name="number" id="number" />
+            <input
+              type="number"
+              name="number"
+              id="number"
+              placeholder="ㅤ"
+              required
+              v-model="inputNumber"
+              @input="checkForm"
+            />
             <label for="number">Номер телефона</label>
           </div>
 
           <div class="form__input-wrapper">
-            <input type="text" name="about" id="about" />
+            <input
+              type="text"
+              name="about"
+              id="about"
+              placeholder="ㅤ"
+              v-model="inputAbout"
+            />
             <label for="about">О чем ваш проект?</label>
           </div>
         </div>
@@ -89,7 +129,9 @@ function selectInterest(interest) {
         </div>
 
         <div class="form__footer">
-          <button>Отправить <CircleArrow /></button>
+          <button :class="{ disabled: !formIsValid }">
+            Отправить <CircleArrow />
+          </button>
           <p>
             Нажимая кнопку «Отправить», вы соглашаетесь с
             <span>политикой конфиденциальности</span> и условиями
