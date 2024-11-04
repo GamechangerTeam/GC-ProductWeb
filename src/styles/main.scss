@@ -26,9 +26,37 @@ section {
   border: 1px solid black;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #000d00;
   color: white;
+}
+
+body,
+.container,
+ul {
+  &::-webkit-scrollbar {
+    position: absolute !important;
+    right: 0;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $white-12;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:active {
+      background-color: $white-40;
+    }
+  }
 }
 
 .container {
@@ -47,7 +75,3 @@ body {
     padding: 16px;
   }
 }
-
-// * {
-//   outline: 1px solid red;
-// }

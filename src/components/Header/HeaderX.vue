@@ -15,33 +15,33 @@ const selectorIsOpen = ref(false)
 const activeSection = ref('Главная')
 const numberCopied = ref(false)
 const screenWidth = ref(window.innerWidth)
-const waveRadius = ref(0)
 
-const openSelector = () => {
-  if (screenWidth.value > 768) {
-    if (selector.value.style.maxHeight) {
-      selector.value.style.maxHeight = null
-      selectorIsOpen.value = false
-    } else {
-      selector.value.style.maxHeight = `${selector.value.scrollHeight}px`
-      selectorIsOpen.value = true
-    }
+const openSelector_desktop = () => {
+  if (selector.value.style.maxHeight) {
+    selector.value.style.maxHeight = null
+    selectorIsOpen.value = false
   } else {
-    selectorIsOpen.value = !selectorIsOpen.value
-    if (selectorIsOpen.value) {
-      waveRadius.value = 30
-    } else {
-      setTimeout(() => {
-        waveRadius.value = 0
-      }, 300)
-    }
+    selector.value.style.maxHeight = `${selector.value.scrollHeight}px`
+    selectorIsOpen.value = true
+  }
+}
+
+const openSelector_tablet = () => {
+  selectorIsOpen.value = !selectorIsOpen.value
+}
+
+const selectorHandler = () => {
+  if (screenWidth.value > 768) {
+    openSelector_desktop()
+  } else {
+    openSelector_tablet()
   }
 }
 
 const changeSection = name => {
   activeSection.value = name
   setTimeout(() => {
-    openSelector()
+    selectorHandler()
   }, 300)
 }
 
@@ -74,7 +74,7 @@ onUnmounted(() => {
         <button
           class="header__burger"
           :class="{ active: selectorIsOpen }"
-          @click="openSelector"
+          @click="selectorHandler"
         >
           <p>
             {{ activeSection }}
@@ -120,7 +120,7 @@ onUnmounted(() => {
       <button
         class="header__burger"
         :class="{ active: selectorIsOpen }"
-        @click="openSelector"
+        @click="selectorHandler"
       >
         <div class="header__burger__wrapper">
           <span class="header__burger--top"></span>
@@ -157,7 +157,7 @@ onUnmounted(() => {
       <span
         class="wave"
         :class="{ active: selectorIsOpen }"
-        @click="openSelector"
+        @click="selectorHandler"
       >
       </span>
 
@@ -167,7 +167,7 @@ onUnmounted(() => {
           cx="15"
           cy="-10"
           :r="waveRadius"
-          @click="openSelector"
+          @click="selectorHandler"
         />
       </svg> -->
     </div>
