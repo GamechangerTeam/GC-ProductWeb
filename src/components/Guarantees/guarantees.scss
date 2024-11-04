@@ -1,8 +1,19 @@
 @use '../../styles/components.scss' as *;
 
 .guarantees {
-  h2 {
+  &__h2 {
     font-size: var(--h2);
+    &--mobile {
+      display: none;
+      @include tablet {
+        display: inline;
+      }
+    }
+    &--pc {
+      @include tablet {
+        display: none;
+      }
+    }
   }
 
   &__list {
@@ -11,7 +22,6 @@
   }
 
   &__item {
-    // padding: 24px 48px;
     border-bottom: 1px solid $white-12;
     position: relative;
     overflow: hidden;
@@ -20,6 +30,13 @@
       font-size: var(--XXL);
       color: $white-60;
       font-family: 'RG';
+      position: relative;
+      top: 0;
+      transition: 0.3s ease;
+      transition-delay: 0.1s;
+      @include mobile {
+        font-size: var(--XL);
+      }
     }
 
     &:hover {
@@ -31,6 +48,58 @@
         top: 0%;
         border-radius: 0;
         width: 100%;
+        &__wrapper {
+          animation-play-state: running;
+        }
+      }
+      p {
+        top: -100px;
+        transition: 0.3s ease-in;
+      }
+    }
+
+    &:nth-child(2) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #be5869, #403a3e);
+      }
+    }
+
+    &:nth-child(3) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #6274e7, #8752a3);
+      }
+    }
+
+    &:nth-child(4) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #f46b45, #eea849);
+      }
+    }
+
+    &:nth-child(5) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #005c97, #363795);
+      }
+    }
+
+    &:nth-child(6) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #fc00ff, #00dbde);
+      }
+    }
+    &:nth-child(7) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #432371, #faae7b);
+      }
+    }
+    &:nth-child(8) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #f8cf6a, #2178dd);
+      }
+    }
+    &:nth-child(9) {
+      .guarantees__carousel {
+        background: linear-gradient(90deg, #08203e, #557c93);
       }
     }
   }
@@ -62,6 +131,7 @@
       gap: 64px;
       transition: 0.3s ease 0.1s;
       animation: carousel-ani 10s linear infinite;
+      animation-play-state: paused;
     }
     &__item {
       display: inline-flex;

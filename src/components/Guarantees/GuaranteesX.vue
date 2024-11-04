@@ -1,5 +1,8 @@
 <script setup>
 import Arrow from '/assets/icons/arrow-right.svg'
+import gsap from 'gsap'
+import { onMounted } from 'vue'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 const items = [
   'Исследование целевой аудитории',
   'Интуитивная структура и удобная навигация',
@@ -11,15 +14,30 @@ const items = [
   'Настройка аналитики и рекламных инструментов',
   'Высокий уровень безопасности и защиты данных',
 ]
+
+gsap.registerPlugin(ScrollTrigger)
+onMounted(() => {
+  gsap.from('.guarantees__h2', {
+    opacity: 0,
+    filter: 'blur(10px)',
+    y: 100,
+    scrollTrigger: '.guarantees__h2',
+    duration: 1,
+  })
+})
 </script>
 
 <template>
   <div class="guarantees" id="guarantees">
-    <h2>
+    <h2 class="guarantees__h2 guarantees__h2--pc">
       <div class="container">
         Каждый сайт <br />
         гарантировано получит
       </div>
+    </h2>
+
+    <h2 class="guarantees__h2 guarantees__h2--mobile">
+      <div class="container">Вы получите</div>
     </h2>
     <ul class="guarantees__list">
       <li class="guarantees__item" v-for="(item, index) in items" :key="index">

@@ -7,9 +7,15 @@ import Arrow from '/assets/icons/arrow.svg'
   <div class="hero" id="hero">
     <div class="container">
       <h1>
-        Разрабатываем <br />
-        сайты, которые <br />
-        говорят за вас.
+        <span> Разрабатываем </span>
+        <br />
+        <span> сайты, </span>
+        <span> которые </span>
+        <br />
+        <span> говорят </span>
+        <span> за </span>
+        <span> вас </span>
+        <span> . </span>
       </h1>
       <p>
         Индивидуальный подход, эффектный <br />
@@ -17,8 +23,8 @@ import Arrow from '/assets/icons/arrow.svg'
       </p>
       <div class="hero__btn-wrapper">
         <button class="hero__contact-us">
-          <CircleText class="text" />
-          <Arrow class="arrow" />
+          <CircleText class="hero__contact-us__text" />
+          <Arrow class="hero__contact-us__arrow" />
         </button>
       </div>
     </div>

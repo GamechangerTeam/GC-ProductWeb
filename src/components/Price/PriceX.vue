@@ -1,6 +1,43 @@
 <script setup>
 import CircleArrow from '/assets/icons/circle-arrow.svg'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  gsap.from('.price__h2', {
+    opacity: 0,
+    filter: 'blur(10px)',
+    y: 100,
+    scrollTrigger: '.price__h2',
+    duration: 1,
+  })
+
+  gsap.from('.price__card', {
+    opacity: 0,
+    y: 100,
+    scrollTrigger: {
+      trigger: '.price__cards',
+      start: 'top 60%',
+    },
+    duration: 1,
+  })
+
+  gsap.utils.toArray('.price__button--ani').forEach((el, i) => {
+    gsap.from(el, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: i * 0.1,
+
+      scrollTrigger: {
+        trigger: '.form',
+        start: 'top 60%',
+      },
+    })
+  })
+})
 
 const prices = ref(['100-150к', '150-300к', '300-600к', '600к+'])
 const selectedPrice = ref(null)
@@ -38,7 +75,7 @@ function selectInterest(interest) {
 <template>
   <div class="price" id="price">
     <div class="container">
-      <h2>
+      <h2 class="price__h2">
         <span>Цены, как у фрилансеров </span>
         <br />
         качество, как у профессионалов
@@ -73,6 +110,7 @@ function selectInterest(interest) {
             :key="interest"
             :class="{ select: interest === selectedInterest }"
             @click="selectInterest(interest)"
+            class="price__button--ani"
           >
             {{ interest }}
           </button>
@@ -123,6 +161,7 @@ function selectInterest(interest) {
             :key="price"
             @click="selectPrice(price)"
             :class="{ select: selectedPrice === price }"
+            class="price__button--ani"
           >
             {{ price }}
           </button>

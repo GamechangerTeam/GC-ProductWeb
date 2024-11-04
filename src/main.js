@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './styles/reset.css'
 import './styles/main.scss'
+
 // LENIS
 
 import 'lenis/dist/lenis.css'
