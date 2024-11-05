@@ -1,7 +1,6 @@
 @use '../../styles/components.scss' as *;
 
 .team {
-  margin: 100px 0 200px;
   .container {
     display: flex;
     flex-direction: column;
@@ -59,12 +58,9 @@
   }
 
   @include laptop {
-    margin: 100px 0 150px;
   }
 
   @include tablet {
-    margin: 0 0 200px;
-
     .container {
       gap: 16px;
     }

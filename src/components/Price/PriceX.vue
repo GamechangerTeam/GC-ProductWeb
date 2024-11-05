@@ -78,7 +78,8 @@ function selectInterest(interest) {
       <h2 class="price__h2">
         <span>Цены, как у фрилансеров </span>
         <br />
-        качество, как у профессионалов
+        <!-- качество, как у профессионалов -->
+        качество вас ебать не должно
       </h2>
       <ul class="price__cards">
         <li class="price__card">

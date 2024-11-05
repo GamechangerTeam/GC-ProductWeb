@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="guarantees" id="guarantees">
+  <div class="guarantees section" id="guarantees">
     <h2 class="guarantees__h2 guarantees__h2--pc">
       <div class="container">
         Каждый сайт <br />

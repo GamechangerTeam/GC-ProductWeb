@@ -1,0 +1,118 @@
+@use '../../styles/components.scss' as *;
+
+.createSite {
+  .container {
+    position: relative;
+  }
+  &__h2 {
+    font-size: 70px;
+
+    span {
+      font-size: 70px;
+      color: $white-60;
+      padding-left: 500px;
+    }
+    @include pc {
+      max-width: 1024px;
+      margin: 0 auto;
+      font-size: 58px;
+      span {
+        font-size: 58px;
+        padding-left: 300px;
+      }
+    }
+
+    @include laptop {
+      font-size: 50px;
+      span {
+        font-size: 50px;
+        padding-left: 300px;
+      }
+    }
+
+    @include break(930px) {
+      font-size: 42px;
+      span {
+        font-size: 42px;
+        padding-left: 300px;
+      }
+    }
+
+    @include tablet {
+      line-height: 42px;
+      font-size: 36px;
+      span {
+        font-size: 36px;
+        padding-left: 300px;
+      }
+    }
+
+    @include break(670px) {
+      span {
+        padding-left: 200px;
+      }
+    }
+
+    @include break(620px) {
+      font-size: 32px;
+      span {
+        font-size: 32px;
+        padding-left: 100px;
+      }
+    }
+
+    @include mobile-big {
+      font-size: 24px;
+      line-height: 30px;
+      span {
+        padding-left: 150px;
+        font-size: 24px;
+      }
+    }
+
+    @include mobile {
+      font-size: 22px;
+      span {
+        font-size: 22px;
+        padding-left: 100px;
+      }
+    }
+
+    @include mobile-min {
+      span {
+        padding-left: 50px;
+      }
+    }
+
+    @include break(335px) {
+      font-size: 20px;
+      span {
+        font-size: 20px;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .show_on_laptop {
+    display: none;
+    // @include laptop {
+    //   display: block;
+    // }
+  }
+
+  // .hide_on_laptop {
+  //   @include laptop {
+  //     display: none;
+  //   }
+  // }
+
+  &__btn {
+    @include button-img;
+    position: absolute;
+    right: 48px;
+    bottom: 50px;
+    @include break(930px) {
+      bottom: -100px;
+    }
+  }
+}

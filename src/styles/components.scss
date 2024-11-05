@@ -135,7 +135,7 @@ $border-gray_gradient: linear-gradient(
 
     --h1: 90px;
     --h2: 70px;
-    --h3: 60px;
+    --h3: 56px;
     --h2-price: 52px;
   }
 }
@@ -170,6 +170,7 @@ $border-gray_gradient: linear-gradient(
 @include mobile-big() {
   :root {
     --line-height-h1: 44px;
+
     --h1: 36px;
     --h3: 28px;
   }
