@@ -30,9 +30,8 @@ onMounted(() => {
     <div class="container">
       <h2 class="createSite__h2">
         <span> Обычные сайты — это не про вас. </span>
-        <br class="show_on_laptop" />
-        Создайте сайт, <br class="hide_on_laptop" />
-        который действительно <br class="hide_on_laptop" />
+        Создайте сайт, <br />
+        который действительно <br />
         отражает ваш бизнес
       </h2>
       <button class="createSite__btn">Заказать <CircleArrow /></button>

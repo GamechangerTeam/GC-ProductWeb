@@ -5,6 +5,7 @@ import Team from './components/Team/TeamX.vue'
 import Price from './components/Price/PriceX.vue'
 import Guarantees from './components/Guarantees/GuaranteesX.vue'
 import CreateSite from './components/CreateSite/CreateSite.vue'
+import Steps from './components/Steps/StepsX.vue'
 
 // import GsapD from './Gsap-d.vue'
 </script>
@@ -18,6 +19,8 @@ import CreateSite from './components/CreateSite/CreateSite.vue'
     <Price />
     <Guarantees />
     <CreateSite />
+    <Steps />
+    <Guarantees />
   </main>
 </template>
 

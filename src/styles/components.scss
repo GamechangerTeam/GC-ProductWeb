@@ -137,6 +137,7 @@ $border-gray_gradient: linear-gradient(
     --h2: 70px;
     --h3: 56px;
     --h2-price: 52px;
+    --XXL: 32px;
   }
 }
 
@@ -162,6 +163,7 @@ $border-gray_gradient: linear-gradient(
     --h1: 40px;
     --h3: 30px;
     --h2-price: 30px;
+    --XXL: 28px;
     --XL: 20px;
     --L: 18px;
   }
@@ -173,6 +175,7 @@ $border-gray_gradient: linear-gradient(
 
     --h1: 36px;
     --h3: 28px;
+    --XXL: 24px;
   }
 }
 
@@ -302,6 +305,7 @@ $border-gray_gradient: linear-gradient(
   @include button();
   padding: 4px 4px 4px 24px;
   font-size: 20px;
+  gap: 32px;
 }
 
 // #endregion

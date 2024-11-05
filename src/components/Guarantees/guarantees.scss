@@ -132,6 +132,9 @@
       transition: 0.3s ease 0.1s;
       animation: carousel-ani 10s linear infinite;
       animation-play-state: paused;
+      @include tablet {
+        animation: carousel-ani__tablet 3s linear infinite;
+      }
     }
     &__item {
       display: inline-flex;
@@ -151,6 +154,16 @@
 
     to {
       right: -1080px;
+    }
+  }
+
+  @keyframes carousel-ani__tablet {
+    from {
+      right: 0;
+    }
+
+    to {
+      right: -1550px;
     }
   }
 }
