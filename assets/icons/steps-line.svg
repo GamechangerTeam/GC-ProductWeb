@@ -1,0 +1,20 @@
+
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238.39 238.39">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 1px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="217.81" cy="20.57" r="10"/>
+  <line class="cls-1" x1="2.83" y1="235.56" x2="217.81" y2="20.57"/>
+</svg>
